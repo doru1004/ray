@@ -422,6 +422,8 @@ class FunctionActorManager:
                 if is_class_method(actor_method) or is_static_method(actor_class, actor_method_name):
                     executor = lambda __ray_actor, *args, **kwargs: actor_method(*args, **kwargs)
                 else:
+                    actor_method.name = actor_method_name
+                    actor_method.method = actor_method
                     executor = actor_method
                 self._function_execution_info[job_id][method_id] = (
                     FunctionExecutionInfo(
