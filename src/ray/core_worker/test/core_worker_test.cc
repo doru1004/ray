@@ -257,8 +257,7 @@ void CoreWorkerTest::TestNormalTask(std::unordered_map<std::string, double> &res
       TaskOptions options;
       std::vector<ObjectID> return_ids;
       driver.SubmitTask(func, args, options, &return_ids, /*max_retries=*/0,
-                        std::make_pair(PlacementGroupID::Nil(), -1), true,
-                        /*debugger_breakpoint=*/"");
+                        std::make_pair(PlacementGroupID::Nil(), -1), true);
 
       ASSERT_EQ(return_ids.size(), 1);
 
